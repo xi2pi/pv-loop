@@ -1,0 +1,54 @@
+\documentclass[10pt,landscape]{article}
+\usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Christian Winkler}
+\usepackage{tikz}
+\usepackage[european]{circuitikz}
+\begin{document}
+
+\begin{figure}[h!]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[short] (0,5)
+      to[short,i=$$,-*] (4,5);
+      \draw (4,3)
+      node[ground] {} (4,3)
+      to[C=$C_v$] (4,5)
+      to[R=$R_{v}$] (6,5)
+      to[D, l=$D_1$] (8,5)
+      to[short, -*] (9,5);
+      \draw (9,3)
+      node[ground] {} (9,3)
+      to[vC=$C_{LV}$, mirror] (9,5)
+      to[short] (10,5)
+      to[D, l=$D_2$] (12,5)
+      to[R=$R_{a}$, -*] (14,5);
+      \draw (14,3)
+      node[ground] {} (14,3)
+      to[C=$C_a$] (14,5);
+      \draw (14,5)
+      to[short] (16,5)
+      to[short,i=$$] (16,0)
+      to[R=$R_p$,i=$$] (0,0);
+      
+      
+      %to[vC=$C_v$] (0,2)
+      
+      
+%      to[V,v=$U_q$] (0,2) % The voltage source
+%      to[short] (2,2)
+%      to[R=$R_1$] (2,0) % The resistor
+%      to[short] (0,0);
+    \end{circuitikz}
+    %\caption{My first circuit.}
+  \end{center}
+\end{figure}
+
+\end{document}
